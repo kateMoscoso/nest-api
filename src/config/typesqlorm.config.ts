@@ -8,5 +8,6 @@ export const typeOrmSQlConfig: TypeOrmModuleOptions = {
     password: "root",
     database: "test",
     entities: ["dist/**/*.entity{.ts,.js}"],
-    synchronize: true
+    synchronize: true,
+        "extra": { "insecureAuth": true }
 };

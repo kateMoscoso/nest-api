@@ -6,7 +6,8 @@ import { Mensaje } from "./mensajes/entities/mensaje.entity";
 import { TasksModule } from './tasks/tasks.module';
 import { TasksController } from "./tasks/tasks.controller";
 import { TasksService } from "./tasks/tasks.service";
-import { typePgOrmConfig } from "./config/typepgorm.config";
+//import { typePgOrmConfig } from "./config/typepgorm.config";
+import { TaskRepository } from "./tasks/task.repository";
 import { typeOrmSQlConfig } from "./config/typesqlorm.config";
 
 //decorador @module que indica que es un modulo
@@ -17,9 +18,8 @@ import { typeOrmSQlConfig } from "./config/typesqlorm.config";
 // en los providers se deben guardar los service
 @Module({
   imports: [
-   // TypeOrmModule.forRoot(typeOrmSQlConfig),
-   TypeOrmModule.forRoot(typePgOrmConfig),
-    TypeOrmModule.forFeature([Mensaje]),
+   TypeOrmModule.forRoot(typeOrmSQlConfig),
+    TypeOrmModule.forFeature([Mensaje, TaskRepository]),
     TasksModule
   ],
   controllers: [MensajesController, TasksController],
