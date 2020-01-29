@@ -101,6 +101,8 @@ nest g class mensajes/mensaje
 
 https://github.com/nestjs/nest/blob/master/integration/docker-compose.yml
 
+
+```
 nest generate service mensajes
 
 nest generate module tasks
@@ -108,3 +110,9 @@ nest generate module tasks
 nest g controller tasks --no-spec
 
 nest g service tasks --no-spec
+
+nest g module auth
+
+nest g controller auth  --no-spec
+
+```

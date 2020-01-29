@@ -4,11 +4,9 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { MensajesService } from "./mensajes/mensajes.service";
 import { Mensaje } from "./mensajes/entities/mensaje.entity";
 import { TasksModule } from './tasks/tasks.module';
-import { TasksController } from "./tasks/tasks.controller";
-import { TasksService } from "./tasks/tasks.service";
 //import { typePgOrmConfig } from "./config/typepgorm.config";
-import { TaskRepository } from "./tasks/task.repository";
 import { typeOrmSQlConfig } from "./config/typesqlorm.config";
+import { AuthModule } from './auth/auth.module';
 
 //decorador @module que indica que es un modulo
 //imports que va a usar el modulo
@@ -19,10 +17,11 @@ import { typeOrmSQlConfig } from "./config/typesqlorm.config";
 @Module({
   imports: [
    TypeOrmModule.forRoot(typeOrmSQlConfig),
-    TypeOrmModule.forFeature([Mensaje, TaskRepository]),
-    TasksModule
+   TypeOrmModule.forFeature([Mensaje]),
+    TasksModule,
+    AuthModule
   ],
-  controllers: [MensajesController, TasksController],
-  providers: [MensajesService, TasksService]
+  controllers: [MensajesController],
+  providers: [MensajesService]
 })
 export class AppModule {}
